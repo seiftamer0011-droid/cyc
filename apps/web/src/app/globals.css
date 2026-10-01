@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #05070d;
+  --color-navy: #0a1224;
+  --color-panel: #0e1830;
+  --color-line: #1b2a4a;
+  --color-cyan: #22e5ff;
+  --color-mist: #a9b4c8;
+  --color-risk-low: #2ee6a0;
+  --color-risk-moderate: #f5d23a;
+  --color-risk-high: #ff9a3c;
+  --color-risk-critical: #ff4d5e;
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
+body { background: var(--color-ink); color: #fff; font-family: var(--font-sans); }
+:focus-visible { outline: 2px solid var(--color-cyan); outline-offset: 3px; }
+
+/* One orchestrated moment: the score ring draws itself on load */
+@keyframes draw { from { stroke-dashoffset: var(--circ); } }
+.ring-draw { animation: draw 1.4s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .ring-draw { animation: none; } }
