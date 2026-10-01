@@ -6,12 +6,13 @@
   --color-panel: #0e1830;
   --color-line: #1b2a4a;
   --color-cyan: #22e5ff;
-  --color-mist: #a9b4c8;
+  --color-mist: #b8c3d9;
+  --color-soft: #d5dced;
   --color-risk-low: #2ee6a0;
   --color-risk-moderate: #f5d23a;
   --color-risk-high: #ff9a3c;
   --color-risk-critical: #ff4d5e;
-  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-grotesk), var(--font-arabic), ui-sans-serif, system-ui, sans-serif;
 }
 
 body { background: var(--color-ink); color: #fff; font-family: var(--font-sans); }

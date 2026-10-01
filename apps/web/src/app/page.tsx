@@ -1,6 +1,7 @@
 import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Concept from "@/components/landing/Concept";
+import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Concept />
-      <footer className="border-t border-line py-8 text-center text-sm text-mist">© 2026 CYC. Connect. Verify. Trust.</footer>
+      <Footer />
     </main>
   );
 }

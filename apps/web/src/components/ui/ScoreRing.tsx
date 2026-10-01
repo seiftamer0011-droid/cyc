@@ -1,10 +1,13 @@
-import { riskFromScore, riskMeta } from "@/lib/mock-data";
+"use client";
+import { riskFromScore } from "@/lib/mock-data";
+import { useLang } from "@/lib/i18n";
 
+// The ring shows only the score. Risk level lives in <RiskBadge />.
 export default function ScoreRing({ score, size = 220 }: { score: number; size?: number }) {
+  const { t } = useLang();
   const r = 84, circ = 2 * Math.PI * r;
-  const risk = riskFromScore(score);
   return (
-    <div className="relative shrink-0" style={{ width: size, height: size }} role="img" aria-label={`Trust score ${score} out of 100, ${riskMeta[risk].label}`}>
+    <div className="relative shrink-0" style={{ width: size, height: size }} role="img" aria-label={`${t.ui.trustScore}: ${score}/100, ${t.risk[riskFromScore(score)]}`}>
       <svg viewBox="0 0 200 200" className="-rotate-90">
         <circle cx="100" cy="100" r={r} fill="none" stroke="var(--color-line)" strokeWidth="10" />
         <circle
@@ -13,9 +16,8 @@ export default function ScoreRing({ score, size = 220 }: { score: number; size?:
           className="ring-draw" style={{ ["--circ" as string]: circ }}
         />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-bold tracking-tight" style={{ fontSize: size * 0.28 }}>{score}</span>
-        <span className={`mt-1 text-xs sm:text-sm ${riskMeta[risk].text}`}>{riskMeta[risk].dot} {riskMeta[risk].label}</span>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span dir="ltr" className="font-bold tracking-tight" style={{ fontSize: size * 0.3 }}>{score}</span>
       </div>
     </div>
   );
